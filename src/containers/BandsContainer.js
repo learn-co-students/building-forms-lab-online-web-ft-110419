@@ -27,21 +27,16 @@ const mapStateToProps = (state) => {
   return { state }
 }
 
-const addBand = (band) => {
-  return {
-    type: 'ADD_BAND',
-    band
-  };
-};
-
 const mapDispatchToProps = (dispatch) => {
   return {
     addBand: (band) => {
-      dispatch(addBand(band))
+      dispatch({
+        type: 'ADD_BAND',
+        band
+      })
     }
   };
 }
 
-// export default connect (mapStateToProps, {addBand})(BandsContainer)
 export default connect (mapStateToProps, mapDispatchToProps)(BandsContainer)
 
