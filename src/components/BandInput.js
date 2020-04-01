@@ -1,7 +1,5 @@
 import React, { Component } from 'react'
-import { connect } from 'react-redux';
-
-
+// import { connect } from 'react-redux';
 
 class BandInput extends Component {
 
@@ -18,7 +16,7 @@ class BandInput extends Component {
   handleSubmit = (event) => {
     console.log(this)
     event.preventDefault()
-    let band = {name: this.state.name}
+    let band = this.state
     this.props.addBand(band)
     this.setState({
       name: ''
@@ -29,7 +27,7 @@ class BandInput extends Component {
     console.log(this.props)
     return(
       <div onSubmit={this.handleSubmit}>
-      {/* <div onSubmit={event => this.props.addBand({name: this.state.name})}> */}
+      {/* <div onSubmit={event => this.props.addBand({name: this.state})}> */}
 
         <form>
           <input name="name" type="text" value={this.state.name} onChange={this.handleChange}></input>
@@ -40,19 +38,19 @@ class BandInput extends Component {
   }
 }
 
-const mapStateToProps = (state) => {
-  return { state }
-}
+// const mapStateToProps = (state) => {
+//   return { state }
+// }
 
-const mapDispatchToProps = (dispatch) => {
-  console.log(dispatch)
-  return {
-    addBand: (band) => {
-      dispatch(this.props.addBand(band))
-    }
-  }
-}
+// const mapDispatchToProps = (dispatch) => {
+//   console.log(dispatch)
+//   return {
+//     addBand: (band) => {
+//       dispatch(this.props.addBand(band))
+//     }
+//   }
+// }
 
-// export default BandInput
-export default connect (mapStateToProps, mapDispatchToProps)(BandInput)
+export default BandInput
+// export default connect (mapStateToProps)(BandInput)
 

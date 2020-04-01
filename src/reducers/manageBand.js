@@ -6,7 +6,6 @@ export default function manageBand(state = {bands: []}, action) {
         ...state,
         bands: [...state.bands, action.band]
       }
-
     default:
       return state
   }
